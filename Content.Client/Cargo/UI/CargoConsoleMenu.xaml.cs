@@ -69,6 +69,7 @@ namespace Content.Client.Cargo.UI
 
             TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
             TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
+            TabContainer.SetTabTitle(2, Loc.GetString("cargo-console-menu-tab-title-traders"));
 
             ActionOptions.OnItemSelected += idx =>
             {

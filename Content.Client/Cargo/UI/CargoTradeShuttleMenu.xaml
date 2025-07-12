@@ -1,0 +1,18 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               Title="Trade Shuttle">
+    <BoxContainer Orientation="Vertical">
+        <!-- Trader Topper -->
+        <BoxContainer Orientation="Horizontal">
+            <TextureRect MinSize="128 128"/>
+            <BoxContainer Orientation="Vertical">
+                <GridContainer Columns="2">
+                    <Label Text="Name:"/>
+                    <Label Text="Placeholder"/>
+                    <Label Text="Description:"/>
+                    <Label Text="Placeholder"/>
+                </GridContainer>
+            </BoxContainer>
+        </BoxContainer>
+        <!-- Trading area -->
+    </BoxContainer>
+</DefaultWindow>

@@ -81,6 +81,22 @@
                     <Button Name="AccountLimitToggleButton" Text="{ Loc 'cargo-console-menu-toggle-account-lock-button'}" MinHeight="45" MinWidth="120"/>
                 </BoxContainer>
             </BoxContainer>
+            <BoxContainer Orientation="Vertical" Margin="15">
+                <PanelContainer>
+                    <Button Name="TraderButton"
+                            ToolTip=""
+                            Access="Public"
+                            HorizontalExpand="True"
+                            VerticalExpand="True"
+                            StyleClasses="OpenBoth"/>
+                    <GridContainer Columns="2" HorizontalExpand="True">
+                        <TextureRect MinSize="128 128"></TextureRect>
+                        <BoxContainer>
+                            <RichTextLabel Text="Example Trader"></RichTextLabel>
+                        </BoxContainer>
+                    </GridContainer>
+                </PanelContainer>
+            </BoxContainer>
         </TabContainer>
     </BoxContainer>
 </controls:FancyWindow>
