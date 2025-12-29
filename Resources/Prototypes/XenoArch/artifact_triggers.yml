@@ -7,8 +7,13 @@
 # SPDX-FileCopyrightText: 2024 wafehling <wafehling@users.noreply.github.com>
 # SPDX-FileCopyrightText: 2025 ATDoop <bug@bug.bug>
 # SPDX-FileCopyrightText: 2025 Fenn <162015305+TooSillyFennec@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 Sanderk35 <sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <76066612+TheHolyAegis@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 TheHolyAegis <Sanderkamphuis719@gmail.com>
 # SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 jackel234 <jackel234@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 maelines <genovedd.almn@gmail.com>
 # SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 # SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
 #
@@ -38,6 +43,8 @@
     TriggerPrying: 0.5
     TriggerScrewing: 0.5
     TriggerPulsing: 0.5
+    TriggerRolling: 0.5
+    TriggerSlicing: 0.5
     TriggerTimer: 0.25
     TriggerBlood: 1
     TriggerThrow: 1
@@ -238,6 +245,24 @@
     examineText: xenoarch-trigger-examine-pulsing
 
 - type: xenoArchTrigger
+  id: TriggerRolling
+  tip: xenoarch-trigger-tip-rolling
+  components:
+  - type: XATToolUse
+    requiredTool: Rolling
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-rolling
+
+- type: xenoArchTrigger
+  id: TriggerSlicing
+  tip: xenoarch-trigger-tip-slicing
+  components:
+  - type: XATToolUse
+    requiredTool: Slicing
+  - type: XATExaminableText
+    examineText: xenoarch-trigger-examine-slicing
+
+- type: xenoArchTrigger
   id: TriggerTimer
   tip: xenoarch-trigger-tip-timer
   components:
@@ -258,6 +283,8 @@
     - Slime
     - AmmoniaBlood
     - ZombieBlood
+    # imp below
+    - SynthBlood
 
 - type: xenoArchTrigger
   id: TriggerThrow

@@ -23,7 +23,10 @@
 // SPDX-FileCopyrightText: 2024 metalgearsloth <31366439+metalgearsloth@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 nikthechampiongr <32041239+nikthechampiongr@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2024 superjj18 <gagnonjake@gmail.com>
+// SPDX-FileCopyrightText: 2025 DevilishMilk <michaellapjr@gmail.com>
+// SPDX-FileCopyrightText: 2025 Mish <bluscout78@yahoo.com>
 // SPDX-FileCopyrightText: 2025 Tay <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 ferynn <witchy.girl.me@gmail.com>
 // SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
 // SPDX-FileCopyrightText: 2025 slarticodefast <161409025+slarticodefast@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
@@ -246,7 +249,7 @@ namespace Content.Server.Communications
             if (message.Actor is not { Valid: true } mob)
                 return;
 
-            if (!CanUse(mob, uid))
+            if (!CanUse(mob, uid) || !comp.CanAlert) // funky - canAlert
             {
                 _popupSystem.PopupCursor(Loc.GetString("comms-console-permission-denied"), message.Actor, PopupType.Medium);
                 return;
@@ -295,7 +298,7 @@ namespace Content.Server.Communications
             // allow admemes with vv
             Loc.TryGetString(comp.Title, out var title);
             title ??= comp.Title;
-			
+
 			Console.WriteLine(comp.Title);
 
 			List<string> announcementWords = new List<string>{};
@@ -348,7 +351,12 @@ namespace Content.Server.Communications
             RaiseLocalEvent(ref ev);
             if (ev.Cancelled)
             {
-                _popupSystem.PopupEntity(ev.Reason ?? Loc.GetString("comms-console-shuttle-unavailable"), uid, message.Actor);
+                string? combinedReason = null;
+                foreach (string reason in ev.Reason)
+                {
+                    combinedReason = combinedReason + reason + "\n";
+                }
+                _popupSystem.PopupEntity(combinedReason ?? Loc.GetString("comms-console-shuttle-unavailable"), uid, message.Actor);
                 return;
             }
 
@@ -394,6 +402,6 @@ namespace Content.Server.Communications
         public EntityUid Uid = Uid;
         public CommunicationsConsoleComponent Component = Component;
         public EntityUid? Sender = Sender;
-        public string? Reason;
+        public List<string> Reason = new List<string>();
     }
 }
